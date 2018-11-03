@@ -13,7 +13,7 @@ don't need.
 Then I tried zprezto. It was less bloated but it was
 a bit harder to use than oh-my-zsh.
 
-After this I said to myself: "Shit man, use your own
+After that I said to myself: "Shit man, use your own
 configuration!" :) This contains exactly those things
 that I need.
 
