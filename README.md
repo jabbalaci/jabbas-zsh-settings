@@ -7,7 +7,7 @@ lots of resources (see links below).
 
 First I tried oh-my-zsh. It was great. It has a very
 logical structure and it was very easy to use, but it
-was a bit bloated. It contained lots of things that I
+was a bit bloated. It contains lots of things that I
 don't need.
 
 Then I tried zprezto. It was less bloated but it was
@@ -19,14 +19,14 @@ that I need.
 
 ## Installation
 
-Clone the repo. I suggest cloning it into your HOME directory:
+1. Clone the repo. I suggest cloning it into your HOME directory:
 
 ```bash
 $ cd
 $ git clone git@github.com:jabbalaci/jabbas-zsh-settings.git
 ```
 
-Create some symbolic links (these are required):
+2. Create some symbolic links (these are required):
 
 ```bash
 $ cd
@@ -35,13 +35,13 @@ $ ln -s jabbas-zsh-settings/.zshenv
 $ ln -s jabbas-zsh-settings/.zshrc
 ```
 
-Start zsh to test if it works well. You should see a nice colored prompt:
+3. Start zsh to test if it works well. You should see a nice colored prompt:
 
 ```bash
 $ zsh
 ```
 
-If you have the balls, set zsh as your primary shell. Use the output of `which zsh`:
+4. If you have the balls, set zsh as your primary shell. Use the output of `which zsh`:
 
 ```bash
 $ which zsh
@@ -49,7 +49,7 @@ $ which zsh
 $ chsh -s /usr/bin/zsh
 ```
 
-Finally, customize the first line of `~/.zshenv` if you cloned the repo
+5. Finally, customize the first line of `~/.zshenv` if you cloned the repo
 somewhere else. If you cloned it in your HOME directory, there is nothing
 to do:
 
