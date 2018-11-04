@@ -1,0 +1,42 @@
+Docs
+----
+
+* https://www.zsh.org/
+  main page, HQ
+
+* http://zsh.sourceforge.net/
+
+* http://zsh.sourceforge.net/Doc/Release/Options.html
+  here every option is explained
+
+  example: `setopt auto_cd`
+
+Reddit
+------
+
+* https://old.reddit.com/r/unixporn/comments/48wmfr/zsh_users_which_do_you_prefer_oh_my_zsh_or_prezto/
+  Summary: write your own config, don't use any framework :)
+
+grml-zsh-config
+---------------
+
+* https://grml.org/zsh/
+  grml's zsh configuration
+
+* https://grml.org/zsh/grmlzshrc.html
+  Grml's zsh setup
+
+* https://www.archlinux.org/packages/extra/any/grml-zsh-config/
+  it has an Arch package
+
+zsh-lovers
+----------
+
+* https://grml.org/zsh/zsh-lovers.html
+  tips, tricks and examples for the Z shell
+
+print
+-----
+
+* http://www.bash2zsh.com/zsh_refcard/refcard.pdf
+  ZSH reference card

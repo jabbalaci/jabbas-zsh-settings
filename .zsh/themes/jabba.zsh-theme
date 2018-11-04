@@ -1,6 +1,16 @@
-source ${0:h}/plugins/nim-project.plugin.zsh    # nim_project_info()
-source ${0:h}/plugins/virtualenv.plugin.zsh     # virtualenv_prompt_info()
-source ${0:h}/plugins/git.plugin.zsh            # git-is-dirty(), git-branch-name()
+import_modules=(
+  nim-project       # nim_project_info()
+  virtualenv        # virtualenv_prompt_info()
+  git               # git-is-dirty(), git-branch-name()
+)
+
+for name in "${import_modules[@]}"
+do
+  # echo "# sourcing module $name"    # debug
+  source ${0:h}/modules/$name/$name.plugin.zsh
+done
+
+# -------------------------------------
 
 # dark / light colors
 greenish="$FG[108]"

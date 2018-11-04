@@ -91,10 +91,10 @@ done
 
 # select one (uncomment it) and comment the others
 
-# source $ZSH_THEMES/basic.zsh
-# source $ZSH_THEMES/rookie.zsh
-# source $ZSH_THEMES/msdos.zsh
-source $ZSH_THEMES/jabba.zsh
+# source $ZSH_THEMES/basic.zsh-theme
+# source $ZSH_THEMES/rookie.zsh-theme
+# source $ZSH_THEMES/msdos.zsh-theme
+source $ZSH_THEMES/jabba.zsh-theme
 
 ###############
 ### Aliases ###
