@@ -1,3 +1,5 @@
+export ZSH_JABBAS_SETTINGS=$HOME/jabbas-zsh-settings
+
 export ZSH="$HOME/.zsh"
 export ZSH_CACHE_DIR="$ZSH/cache"
 export ZSH_LIB="$ZSH/lib"
