@@ -53,6 +53,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 libs=(
   grep            # colored output + ignore .git folders
   key-bindings    # must have
+  git             # git_up "command"
 )
 
 for name in "${libs[@]}"
@@ -110,7 +111,8 @@ source $ZSH/aliases_functions.zsh
 # start `cat -v` and press your keybindings
 # `cat -v` will show you the key combination of your key presses
 
-bindkey -s '^H' 'clear; ls -al\n'                               # [Ctrl+Backspace] - directory content
+bindkey -s '^H' 'clear; ls -al\n'       # [Ctrl+Backspace] - directory content
+bindkey -s '^G' 'git status\n'          # git status
 
 # Bang! Previous Command Hotkeys
 # print previous command but only the first nth arguments
