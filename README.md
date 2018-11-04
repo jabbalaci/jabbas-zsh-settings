@@ -22,4 +22,5 @@ that I need.
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * [zprezto](https://github.com/sorin-ionescu/prezto)
 * [Jerome Dalbert's ZSH settings](https://github.com/jeromedalbert/dotfiles)
+* [gotbletu's ZSH video series](https://www.youtube.com/playlist?list=PL66D9420766CE3902)
 * etc.
