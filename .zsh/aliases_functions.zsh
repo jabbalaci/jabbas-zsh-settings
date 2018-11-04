@@ -113,6 +113,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# git
+alias g='git status'
+
 # Fzf
 j() {
   if [ $# -gt 0 ]; then
@@ -131,7 +134,7 @@ j() {
 
 # https://github.com/gotbletu/shownotes/blob/master/zsh_global_alias_expansion.md
 # Automatically Expanding Global Aliases (Space key to expand)
-# references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html 
+# references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
 globalias() {
   if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
     zle _expand_alias
