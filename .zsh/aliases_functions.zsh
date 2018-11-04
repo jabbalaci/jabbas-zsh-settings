@@ -99,10 +99,11 @@ alias files='pacman -Ql'
 alias ssr='simplescreenrecorder 2>/dev/null &'
 
 # Confs
-alias ez="$EDITOR $HOME/.zshrc"    # edit ~/.zshrc
-alias ee="$EDITOR $HOME/.zshenv"    # edit ~/.zshenv
-alias ea="$EDITOR $ZSH/aliases_functions.zsh"    # edit aliases
-alias rel='source ~/.zshenv; source ~/.zshrc'    # reload
+alias ez="$EDITOR $HOME/.zshrc"                     # edit ~/.zshrc
+alias ee="$EDITOR $HOME/.zshenv"                    # edit ~/.zshenv
+alias ea="$EDITOR $ZSH/aliases_functions.zsh"       # edit aliases
+alias en="$EDITOR $ZSH/notes.txt"                   # edit notes
+alias rel='source ~/.zshenv; source ~/.zshrc'       # reload
 
 # Directories
 alias ls='ls --color=auto'
@@ -142,3 +143,41 @@ j() {
     cd "$(_z -l 2>&1 | fzf --height 40% --reverse --tac --query "$*" | sed 's/^[0-9,.]* *//')"
   fi
 }
+
+
+##################
+# Global aliases #
+##################
+
+# https://github.com/gotbletu/shownotes/blob/master/zsh_global_alias_expansion.md
+# Automatically Expanding Global Aliases (Space key to expand)
+# references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html 
+globalias() {
+  if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+zle -N globalias
+bindkey " " globalias                 # space key to expand globalalias
+bindkey "^ " magic-space            # control-space to bypass completion
+# bindkey "^[[Z" magic-space            # shift-tab to bypass completion
+bindkey -M isearch " " magic-space    # normal space during searches
+
+# http://www.zzapper.co.uk/zshtips.html
+# alias -g ND='*(/om[1])' 	      # newest directory
+# alias -g NF='*(.om[1])' 	      # newest file
+alias -g L='| less'
+alias -g M='| most'
+alias -g WC='| wc -l'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g NUL=">/dev/null 2>&1"
+alias -g NULL=">/dev/null 2>&1"
+alias -g NO=">/dev/null 2>&1"
+alias -g N1="1>/dev/null"
+alias -g 1N="1>/dev/null"
+alias -g N2="2>/dev/null"
+alias -g 2N="2>/dev/null"

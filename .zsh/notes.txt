@@ -40,3 +40,9 @@ print
 
 * http://www.bash2zsh.com/zsh_refcard/refcard.pdf
   ZSH reference card
+
+tips
+----
+
+* http://www.zzapper.co.uk/zshtips.html
+  ZSH Tips by ZZapper
