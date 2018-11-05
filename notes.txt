@@ -11,6 +11,12 @@ Docs
 
   example: `setopt auto_cd`
 
+other people's config (check 'em out)
+-------------------------------------
+
+* https://github.com/cbarrick/dotfiles/tree/master/home/.zsh
+  cbarrick's settings
+
 Reddit
 ------
 

@@ -38,15 +38,23 @@ if [[ -n "${fzf_base}" ]]; then
     export PATH="$PATH:$fzf_base/bin"
   fi
 
-  # Manjaro patch
-  fzf_shell="/usr/share/fzf"
-  
+  # my patch (Jabba)
+  if [[ -d /usr/share/fzf ]]; then
+    # Manjaro
+    fzf_shell="/usr/share/fzf"
+  else
+    # Ubuntu, if you installed fzf with the following command:
+    # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    # see https://github.com/junegunn/fzf#using-git
+    fzf_shell="$HOME/.fzf/shell"
+  fi
+
   # Auto-completion
   # ---------------
   if [[ ! "$DISABLE_FZF_AUTO_COMPLETION" == "true" ]]; then
     [[ $- == *i* ]] && source "${fzf_shell}/completion.zsh" 2> /dev/null
   fi
-  
+
   # Key bindings
   # ------------
   if [[ ! "$DISABLE_FZF_KEY_BINDINGS" == "true" ]]; then

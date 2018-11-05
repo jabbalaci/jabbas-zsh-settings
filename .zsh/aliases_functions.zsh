@@ -78,11 +78,14 @@ alias ver='pacman -Qi'
 alias files='pacman -Ql'
 alias ssr='simplescreenrecorder 2>/dev/null &'
 
+# e* , i.e. edit something
+alias ee="$EDITOR $HOME/.zshenv"                             # edit ~/.zshenv
+alias ez="$EDITOR $HOME/.zshrc"                              # edit ~/.zshrc
+alias ea="$EDITOR $ZSH/aliases_functions.zsh"                # edit aliases
+alias en="$EDITOR $ZSH_JABBAS_SETTINGS/notes.txt"            # edit notes
+alias elog="$EDITOR $DROPBOX/document/log/2018_szept.txt"    # edit log
+
 # Confs
-alias ee="$EDITOR $HOME/.zshenv"                    # edit ~/.zshenv
-alias ez="$EDITOR $HOME/.zshrc"                     # edit ~/.zshrc
-alias ea="$EDITOR $ZSH/aliases_functions.zsh"       # edit aliases
-alias en="$EDITOR $ZSH_JABBAS_SETTINGS/notes.txt"   # edit notes
 alias rel='source ~/.zshenv; source ~/.zshrc'       # reload
 
 # Directories
