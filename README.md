@@ -64,4 +64,5 @@ export ZSH_JABBAS_SETTINGS=$HOME/jabbas-zsh-settings
 * [zprezto](https://github.com/sorin-ionescu/prezto)
 * [Jerome Dalbert's ZSH settings](https://github.com/jeromedalbert/dotfiles)
 * [gotbletu's ZSH video series](https://www.youtube.com/playlist?list=PL66D9420766CE3902)
+* [a nice and icy ZSH prompt in Nim](https://github.com/icyphox/nicy)
 * etc.
