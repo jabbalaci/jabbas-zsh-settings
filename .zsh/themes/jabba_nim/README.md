@@ -4,3 +4,7 @@ available at https://github.com/icyphox/nicy .
 
 Basically I took the code from there and
 customized it to my needs.
+
+<p align="center">
+  <img width="75%" src="screenshot.png">
+</p>
