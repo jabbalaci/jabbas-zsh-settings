@@ -97,10 +97,10 @@ fi
 
 # select one (uncomment it) and comment the others
 
-# source $ZSH_THEMES/basic.zsh-theme
-# source $ZSH_THEMES/rookie.zsh-theme
-# source $ZSH_THEMES/msdos.zsh-theme
-# source $ZSH_THEMES/jabba.zsh-theme
+# source $ZSH_THEMES/basic_zsh/basic.zsh
+# source $ZSH_THEMES/msdos_zsh/msdos.zsh
+# source $ZSH_THEMES/rookie_zsh/rookie.zsh
+# source $ZSH_THEMES/jabba_zsh/jabba.zsh
 
 # start: https://github.com/jabbalaci/nicy
 STATUS_CODE_FILE_FOR_NIM="/tmp/9033289e.tmp"

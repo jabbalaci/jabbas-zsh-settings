@@ -7,7 +7,7 @@ import_modules=(
 for name in "${import_modules[@]}"
 do
   # echo "# sourcing module $name"    # debug
-  source ${0:h}/_modules/$name/$name.plugin.zsh
+  source ${0:h}/../_modules/$name/$name.plugin.zsh
 done
 
 # -------------------------------------
