@@ -125,12 +125,12 @@ proc virtualenv*(): string =
     result = ""
   else:
     result = "($1) ".format(extractFilename(env))
-  
+
 proc getBranchName(): string =
   let
     gitCmd = "git symbolic-ref --short -q HEAD"
     (output, errorCode) = execCmdEx(gitCmd)
-    
+
   if errorCode == 0:
     output.strip
   else:
