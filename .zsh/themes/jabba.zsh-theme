@@ -7,23 +7,23 @@ import_modules=(
 for name in "${import_modules[@]}"
 do
   # echo "# sourcing module $name"    # debug
-  source ${0:h}/modules/$name/$name.plugin.zsh
+  source ${0:h}/_modules/$name/$name.plugin.zsh
 done
 
 # -------------------------------------
 
 # dark / light colors
 greenish="$FG[108]"
-orange="$FG[208]"
-lightblue="$FG[111]"
 gray_darker="$FG[239]"
 gray_lighter="$FG[244]"
 
 time_dark="$fg_bold[green]"
-time_light=$terminfo[bold]$gray_lighter
+# time_light=$terminfo[bold]$gray_lighter
+time_light="$fg[green]"
 
 clean_dark="$fg_bold[green]"
-clean_light="$terminfo[bold]$greenish"
+# clean_light="$terminfo[bold]$greenish"
+clean_light="$fg[green]"
 
 venv_dark="$fg_bold[blue]"
 venv_light="$fg_bold[blue]"
@@ -43,14 +43,8 @@ rprompt_light=$gray_darker
 branch_dark="$fg_bold[yellow]"
 branch_light="$terminfo[bold]$greenish"
 
-arrow_on_left_dark="$lightblue"
-arrow_on_left_light="$gray_lighter"
-
 pwd_dark="$fg_bold[magenta]"
 pwd_light="$fg_bold[magenta]"
-
-real_pwd_dark="$fg_bold[yellow]"
-real_pwd_light="$terminfo[bold]$greenish"
 
 dirty_dark="$fg_bold[red]"
 dirty_light="$fg_bold[red]"
@@ -59,7 +53,7 @@ error_dark="$fg_bold[red]"
 error_light="$fg_bold[red]"
 
 
-if [[ "$JABBA_THEME_MODE" == "light" ]]; then
+if [[ "$ZSH_THEME_MODE" == "light" ]]; then
   cTime=$time_light
   cClean=$clean_light
   cVenv=$venv_light
@@ -69,10 +63,8 @@ if [[ "$JABBA_THEME_MODE" == "light" ]]; then
   cPromptChar=$prompt_char_light
   cBranch=$branch_light
   cPwd=$pwd_light
-  cRealPwd=$real_pwd_light
   cDirty=$dirty_light
   cError=$dirty_light
-  cArrowOnLeft=$arrow_on_left_light
 else
   cTime=$time_dark
   cClean=$clean_dark
@@ -83,10 +75,8 @@ else
   cPromptChar=$prompt_char_dark
   cBranch=$branch_dark
   cPwd=$pwd_dark
-  cRealPwd=$real_pwd_dark
   cDirty=$dirty_dark
   cError=$dirty_dark
-  cArrowOnLeft=$arrow_on_left_dark
 fi
 
 _hr() {

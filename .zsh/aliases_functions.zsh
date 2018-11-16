@@ -3,12 +3,21 @@
 #########################
 
 # make directory and go (enter [cd] the created directory)
-function mdgo () {
+mdgo () {
   if [[ -z "$1" ]]
   then
     echo "Usage: mdgo <dir>"
   else
     mkdir $1; cd $1
+  fi
+}
+
+prettyjson () {
+  if [[ -z "$1" ]]
+  then
+    echo "Usage: prettyjson <ugly.json>"
+  else
+    cat $1 | python -m json.tool
   fi
 }
 
@@ -110,6 +119,9 @@ alias 8='cd -8'
 alias 9='cd -9'
 
 alias md='mkdir -p'
+
+# fun
+alias sshow_r='feh -zsZFD 5 .'
 
 # Safety
 alias cp='cp -i'

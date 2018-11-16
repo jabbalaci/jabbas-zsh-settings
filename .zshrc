@@ -91,12 +91,25 @@ done
 ### Themes ###
 ##############
 
+if [[ -f $HOME/LIGHT_BACKGROUND ]]; then
+  ZSH_THEME_MODE="light"
+fi
+
 # select one (uncomment it) and comment the others
 
 # source $ZSH_THEMES/basic.zsh-theme
 # source $ZSH_THEMES/rookie.zsh-theme
 # source $ZSH_THEMES/msdos.zsh-theme
-source $ZSH_THEMES/jabba.zsh-theme
+# source $ZSH_THEMES/jabba.zsh-theme
+
+# start: https://github.com/jabbalaci/nicy
+STATUS_CODE_FILE_FOR_NIM="/tmp/9033289e.tmp"
+_nicy_prompt() {
+    echo $? > $STATUS_CODE_FILE_FOR_NIM
+    PROMPT=$($ZSH_THEMES/jabba_nim/jabba)
+}
+precmd_functions+=_nicy_prompt
+# end: https://github.com/jabbalaci/nicy
 
 ###############
 ### Aliases ###
@@ -111,8 +124,8 @@ source $ZSH/aliases_functions.zsh
 # start `cat -v` and press your keybindings
 # `cat -v` will show you the key combination of your key presses
 
-bindkey -s '^H' 'clear; ls -al\n'       # [Ctrl+Backspace] - directory content
-bindkey -s '^G' 'git status\n'          # git status
+# bindkey -s '^H' 'clear; ls -al\n'       # [Ctrl+Backspace] - directory content
+# bindkey -s '^G' 'git status\n'          # git status
 
 # Bang! Previous Command Hotkeys
 # print previous command but only the first nth arguments
