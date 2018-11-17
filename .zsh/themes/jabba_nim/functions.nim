@@ -152,15 +152,14 @@ proc coloredBranchName*(): string =
     color(&"({name}) ", green, b=true)
 
 proc nimProjectInfo*(): string =
-  let files = toSeq(walkFiles("*.nimble"))
-  if files.len > 0:
-    "$1$2$3 ".format(
+  for fname in walkFiles("*.nimble"):
+    return "$1$2$3 ".format(
       color("(", blue, b=true),
       color("♛", yellow, b=true),
       color(")", blue, b=true)
     )
-  else:
-    ""
+  # if no .nimble file was found
+  ""
 
 proc coloredPrompt*(): string =
   try:
