@@ -53,7 +53,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 libs=(
   grep            # colored output + ignore .git folders
   key-bindings    # must have
-  git             # git_up "command"
+  git             # gitup "command"
 )
 
 for name in "${libs[@]}"

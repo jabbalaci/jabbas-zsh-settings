@@ -59,16 +59,12 @@ my_mc() {
       return
     fi
   fi
-  # patch; mc with zsh behaved strangely: 1) it was slow, and 2) the prompt was a mess
-  # if mc thinks the shell is bash, it works well...
-  # if [[ $SHELL == "/bin/zsh" ]]; then
-  #     text="SHELL=/bin/bash $text"
-  # fi
   alias mc="$text"
 }
 my_mc
 unfunction my_mc    # clean up
 # END: mc-wrapper
+
 alias m='mc'
 alias r='ranger'
 alias n='nnn'
@@ -123,7 +119,7 @@ alias md='mkdir -p'
 # fun
 alias sshow_r='feh -zsZFD 5 .'
 
-# Safety
+# safety
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -131,7 +127,7 @@ alias rm='rm -i'
 # git
 alias g='git status'
 
-# Fzf
+# fzf
 j() {
   if [ $# -gt 0 ]; then
     # _z "$@"
