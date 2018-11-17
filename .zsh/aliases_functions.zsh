@@ -75,6 +75,10 @@ alias p3='python3'
 alias p='python3'
 alias ipy='ipython'
 
+# Nim
+alias rod="rodcli"
+alias ri="rodcli i"
+
 # Ubuntu
 alias sagi='sudo apt install'    # used to be `sudo apt-get install`
 
