@@ -105,8 +105,12 @@ fi
 # start: https://github.com/jabbalaci/nicy
 STATUS_CODE_FILE_FOR_NIM="/tmp/9033289e.tmp"
 _nicy_prompt() {
-    echo $? > $STATUS_CODE_FILE_FOR_NIM
-    PROMPT=$($ZSH_THEMES/jabba_nim/jabba)
+  local new_val=$?    # Call it first!
+  local old_val=$(cat $STATUS_CODE_FILE_FOR_NIM 2>/dev/null)
+  if [ "$new_val" != "$old_val" ]; then    # use new_val, $? might have changed since then
+    echo $new_val > $STATUS_CODE_FILE_FOR_NIM
+  fi
+  PROMPT=$($ZSH_THEMES/jabba_nim/jabba)
 }
 precmd_functions+=_nicy_prompt
 # end: https://github.com/jabbalaci/nicy
