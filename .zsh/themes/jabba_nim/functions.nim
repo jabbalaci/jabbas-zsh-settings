@@ -8,7 +8,6 @@ import
   times
 
 const
-  STATUS_CODE_FILE = "/tmp/9033289e.tmp"
   prompt = "$"
 
   magenta* = "magenta"
@@ -21,6 +20,13 @@ func lchop(s, sub: string): string =
   ## Remove ``sub`` from the beginning of ``s``.
   if s.startsWith(sub):
     s[sub.len .. s.high]
+  else:
+    s
+
+func rchop(s, sub: string): string =
+  ## Remove ``sub`` from the end of ``s``.
+  if s.endsWith(sub):
+    s[0 ..< ^sub.len]
   else:
     s
 
@@ -96,17 +102,8 @@ func color*(s: string, fg: string = "", bg: string = "",
     result = reverse(result)
   result = reset(result)
 
-# proc horizontalRule*(c: char = '-'): string =
-  # let width = terminalWidth()
-  # for i in countup(1, width):
-    # result &= c
-  # result &= zeroWidth("\n")
-
 proc tilde*(path: string): string =
-  let home =    # without trailing '/'
-    block:
-      let dname = getHomeDir()
-      if dname.endswith("/"): dname[0 ..< ^1] else: dname
+  let home = getHomeDir().rchop("/")    # without trailing '/'
 
   if path.startsWith(home):
     result = "~" & path.lchop(home)    # replace the first occurrence only
@@ -167,7 +164,7 @@ proc nimProjectInfo*(): string =
 
 proc coloredPrompt*(): string =
   try:
-    let retCode = readFile(STATUS_CODE_FILE).strip.parseInt
+    let retCode = paramStr(1).parseInt
     if retCode == 0:
       result = prompt
     else:
@@ -180,3 +177,9 @@ proc coloredPrompt*(): string =
 
 # proc host*(): string =
   # result = getEnv("HOST")
+
+# proc horizontalRule*(c: char = '-'): string =
+  # let width = terminalWidth()
+  # for i in countup(1, width):
+    # result &= c
+  # result &= zeroWidth("\n")
