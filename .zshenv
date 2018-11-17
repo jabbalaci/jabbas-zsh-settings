@@ -30,5 +30,6 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # PATH
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$ZSH/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.nimble/bin
