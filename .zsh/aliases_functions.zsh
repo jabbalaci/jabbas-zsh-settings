@@ -92,7 +92,6 @@ alias ee="$EDITOR $HOME/.zshenv"                             # edit ~/.zshenv
 alias ez="$EDITOR $HOME/.zshrc"                              # edit ~/.zshrc
 alias ea="$EDITOR $ZSH/aliases_functions.zsh"                # edit aliases
 alias en="$EDITOR $ZSH_JABBAS_SETTINGS/notes.txt"            # edit notes
-alias elog="$EDITOR $DROPBOX/document/log/2018_szept.txt"    # edit log
 
 # Confs
 alias rel='source ~/.zshenv; source ~/.zshrc'       # reload
@@ -141,6 +140,15 @@ j() {
     cd "$(_z -l 2>&1 | fzf --height 40% --reverse --tac --query "$*" | sed 's/^[0-9,.]* *//')"
   fi
 }
+
+# others
+alias notes="code $DROPBOX/notes/notes.code-workspace"
+alias note="notes"
+alias elog="notes"
+
+# launchers
+alias processing="cd /opt/processing && ./processing"
+alias kpx="keepassxc 2>/dev/null &"
 
 
 ##################

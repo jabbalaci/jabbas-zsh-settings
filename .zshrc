@@ -91,8 +91,9 @@ done
 ### Themes ###
 ##############
 
+# Default theme mode: dark. If you want light theme, activate it manually:
 if [[ -f $HOME/LIGHT_BACKGROUND ]]; then
-  ZSH_THEME_MODE="light"
+  export ZSH_THEME_MODE="light"
 fi
 
 # select one (uncomment it) and comment the others
