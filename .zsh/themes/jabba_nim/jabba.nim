@@ -3,7 +3,7 @@ import functions
 
 let
   line1 = &"{hr()}\n"
-  line2 = &"{nimProjectInfo()}{color(virtualenv(), blue, b=true)}{color('[' & getCurrentTime() & ']', green, b=true)} [nim] {color(tilde(getCwd()), magenta, b=true)}{coloredBranchName()}{coloredPrompt()} "
+  line2 = &"{nimProjectInfo()}{virtualEnvInfo()}{timeInfo()} [nim] {color(tilde(getCwd()), magenta, b=true)}{coloredBranchName()}{coloredPrompt()} "
   result = line1 & line2
 
 echo result

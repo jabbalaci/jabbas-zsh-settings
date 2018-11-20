@@ -7,6 +7,8 @@ import
   tables,
   times
 
+let light_mode = (getEnv("ZSH_THEME_MODE") == "light")
+
 const
   prompt = "$"
 
@@ -149,17 +151,28 @@ proc coloredBranchName*(): string =
   if isDirty():
     color(&"({name}) ", red, b=true)
   else:
-    color(&"({name}) ", green, b=true)
+    let bold = if light_mode: false else: true
+    color(&"({name}) ", green, b=bold)
 
 proc nimProjectInfo*(): string =
+  let col = if light_mode: blue else: yellow
+
   for fname in walkFiles("*.nimble"):
     return "$1$2$3 ".format(
       color("(", blue, b=true),
-      color("♛", yellow, b=true),
+      color("♛", col, b=true),
       color(")", blue, b=true)
     )
   # if no .nimble file was found
   ""
+
+proc virtualEnvInfo*(): string =
+  color(virtualenv(), blue, b=true)
+
+proc timeInfo*(): string =
+  let bold = if light_mode: false else: true
+
+  color("[$1]".format(getCurrentTime()), green, b=bold)
 
 proc coloredPrompt*(): string =
   try:
