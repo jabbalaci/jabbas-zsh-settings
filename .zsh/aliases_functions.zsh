@@ -150,6 +150,11 @@ alias elog="notes"
 alias processing="cd /opt/processing && ./processing"
 alias kpx="keepassxc 2>/dev/null &"
 
+# Clojure
+alias repl="lein repl"
+alias repl19="cd $DROPBOX/clojure/_latest_stable && lein repl"
+alias rebel='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"0.1.4\"}}}" -m rebel-readline.main'
+
 
 ##################
 # Global aliases #
