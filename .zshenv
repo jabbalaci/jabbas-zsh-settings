@@ -28,8 +28,28 @@ export PAGER=less
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-# PATH
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$ZSH/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.nimble/bin
+# START: set PATH
+# {{{
+path_dirs=(
+  /opt/java/bin
+  /opt/anaconda3/bin
+  /usr/local/bin
+  /usr/bin
+  /var/lib/snapd/snap/bin
+  $HOME/bin
+  $HOME/.zsh/bin
+  $HOME/.local/bin
+  $HOME/.nimble/bin
+)
+
+PATH=""
+for pdir in "${path_dirs[@]}"
+do
+    if [[ "$PATH" == "" ]]; then
+        PATH=$pdir
+    else
+        PATH=$PATH:$pdir
+    fi
+done
+export PATH
+# }}}

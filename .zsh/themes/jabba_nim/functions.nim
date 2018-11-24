@@ -11,6 +11,8 @@ let light_mode = (getEnv("ZSH_THEME_MODE") == "light")
 
 const
   prompt = "$"
+  separator = "="
+  # separator = "─"    # Unicode, no little space between two such characters
 
   magenta* = "magenta"
   yellow* = "yellow"
@@ -39,7 +41,7 @@ proc getCurrentTime*(): string =
 
   &"{h:02}:{m:02}:{s:02}"
 
-func hr*(letter = '=', width = 78): string =
+func hr*(letter = separator, width = 78): string =
   letter.repeat(width)
 
 func zeroWidth*(s: string): string =
@@ -112,9 +114,18 @@ proc tilde*(path: string): string =
   else:
     result = path
 
+proc getWorkingDir(): string =
+  # v1. If I enter a symbolic link that points on a folder, it'll show
+  #     the real path without the symbolic link (like `/bin/pwd`).
+  # getCurrentDir()
+  # v2. If you enter a symbolic link that points on a folder, you'll
+  #     see the name of the symbolic link in the path. I prefer it.
+  # execProcess("pwd").strip
+  getEnv("PWD")    # same result as calling `pwd`
+
 proc getCwd*(): string =
   try:
-    result = getCurrentDir() & " "
+    result = getWorkingDir() & " "
   except OSError:
     result = "[not found]"
 

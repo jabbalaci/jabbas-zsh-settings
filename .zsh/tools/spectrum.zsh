@@ -53,5 +53,9 @@ function spectrum_ls() {
 function spectrum_bls() {
   for code in {000..255}; do
     print -P -- "$code: %{$BG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}"
-  done
+done
 }
+
+spectrum_ls
+
+print -P "%{$FG[153]%}hello%{$reset_color%}"
