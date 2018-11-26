@@ -38,6 +38,7 @@ alias top10files='find . -type f -print0 | du -h --files0-from=- | sort -hr | he
 alias top10history="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 alias ssh='ssh -o ServerAliveInterval=60'
 alias cls='clear'
+alias echo_path='echo $PATH | tr : "\n"'
 
 # Editors / File Managers
 alias vi=$EDITOR
@@ -82,9 +83,15 @@ alias ri="rodcli i"
 # Ubuntu
 alias sagi='sudo apt install'    # used to be `sudo apt-get install`
 
-# Manjaro
+# Manjaro / Ubuntu
 alias ver='pacman -Qi'
-alias files='pacman -Ql'
+# ┌---
+if [[ $(get_distro_name) == "ubuntu" ]]; then
+  alias files='dpkg-query -L'    # ubuntu
+else
+  alias files='pacman -Ql'       # manjaro
+fi
+# └---
 alias ssr='simplescreenrecorder 2>/dev/null &'
 
 # e* , i.e. edit something
@@ -148,7 +155,13 @@ alias elog="notes"
 
 # launchers
 alias processing="cd /opt/processing && ./processing"
-alias kpx="keepassxc 2>/dev/null &"
+# ┌---
+if [[ $(get_distro_name) == "ubuntu" ]]; then
+  alias kpx="keepassx 2>/dev/null &"    # ubuntu, normal keepassx, not the ...xc version
+else
+  alias kpx="keepassxc 2>/dev/null &"   # manjaro, the ...xc version
+fi
+# └---
 
 # Clojure
 alias repl="lein repl"

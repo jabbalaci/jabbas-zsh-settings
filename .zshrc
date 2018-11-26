@@ -54,6 +54,7 @@ libs=(
   grep            # colored output + ignore .git folders
   key-bindings    # must have
   git             # gitup "command"
+  os              # distro detection with get_distro_name()
 )
 
 for name in "${libs[@]}"
@@ -106,7 +107,7 @@ fi
 # start: https://github.com/jabbalaci/nicy
 _nicy_prompt() {
   local prev_exit_code=$?
-  PROMPT=$($ZSH_THEMES/jabba_nim/jabba $prev_exit_code)
+  PROMPT=$($ZSH_THEMES/jabba2_nim/jabba2 $prev_exit_code)
 }
 precmd_functions+=_nicy_prompt
 # end: https://github.com/jabbalaci/nicy

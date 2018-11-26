@@ -34,8 +34,10 @@ path_dirs=(
   /opt/java/bin
   /opt/anaconda3/bin
   /usr/local/bin
+  /bin                      # Ubuntu needs this
   /usr/bin
-  /var/lib/snapd/snap/bin
+  /var/lib/snapd/snap/bin   # Manjaro
+  /snap/bin                 # Ubuntu
   $HOME/bin
   $HOME/.zsh/bin
   $HOME/.local/bin
