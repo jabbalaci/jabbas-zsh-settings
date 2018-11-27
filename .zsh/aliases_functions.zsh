@@ -2,6 +2,19 @@
 ## aliases / functions ##
 #########################
 
+# things that differ on my ubuntu and manjaro boxes
+# DESKTOP_SESSION is "ubuntu" (for Ubuntu) or "xfce" (for Manjaro)
+if [[ "$DESKTOP_SESSION" == "ubuntu" ]]; then
+  # Ubuntu
+  alias files='dpkg-query -L'
+else
+  # Manjaro
+  alias files='pacman -Ql'
+  # I could install steam via Flatpak.
+  # see https://wiki.archlinux.org/index.php/steam#Alternative_Flatpak_installation for install instructions
+  alias steam="flatpak run com.valvesoftware.Steam &>/dev/null &"
+fi
+
 # make directory and go (enter [cd] the created directory)
 mdgo () {
   if [[ -z "$1" ]]
@@ -83,15 +96,8 @@ alias ri="rodcli i"
 # Ubuntu
 alias sagi='sudo apt install'    # used to be `sudo apt-get install`
 
-# Manjaro / Ubuntu
+# Manjaro
 alias ver='pacman -Qi'
-# ┌---
-if [[ $(get_distro_name) == "ubuntu" ]]; then
-  alias files='dpkg-query -L'    # ubuntu
-else
-  alias files='pacman -Ql'       # manjaro
-fi
-# └---
 alias ssr='simplescreenrecorder 2>/dev/null &'
 
 # e* , i.e. edit something
@@ -156,7 +162,7 @@ alias elog="notes"
 # launchers
 alias processing="cd /opt/processing && ./processing"
 # ┌---
-if [[ $(get_distro_name) == "ubuntu" ]]; then
+if [[ "$DESKTOP_SESSION" == "ubuntu" ]]; then
   alias kpx="keepassx 2>/dev/null &"    # ubuntu, normal keepassx, not the ...xc version
 else
   alias kpx="keepassxc 2>/dev/null &"   # manjaro, the ...xc version

@@ -54,7 +54,7 @@ libs=(
   grep            # colored output + ignore .git folders
   key-bindings    # must have
   git             # gitup "command"
-  os              # distro detection with get_distro_name()
+  # distro          # distro detection with get_distro_name()
 )
 
 for name in "${libs[@]}"
@@ -142,5 +142,9 @@ bindkey -s '\e0' "!:0- \t"     # all but the last word
 # ------------------------------------
 
 if [[ -f $DROPBOX/secret/own_api_keys.sh ]]; then; source $DROPBOX/secret/own_api_keys.sh; fi
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # zprof

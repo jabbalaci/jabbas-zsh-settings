@@ -28,11 +28,13 @@ export PAGER=less
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
+export SDKMAN_DIR="$HOME/.sdkman"
+
 # START: set PATH
 # {{{
 path_dirs=(
   /opt/java/bin
-  /opt/anaconda3/bin
+  # /opt/anaconda3/bin
   /usr/local/bin
   /bin                      # Ubuntu needs this
   /usr/bin
