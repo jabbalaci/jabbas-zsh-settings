@@ -6,6 +6,8 @@ export ZSH_LIB="$ZSH/lib"
 export ZSH_PLUGINS="$ZSH/plugins"
 export ZSH_THEMES="$ZSH/themes"
 
+export WORKON_HOME=$HOME/.virtualenvs
+
 export DROPBOX=$HOME/Dropbox
 
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
