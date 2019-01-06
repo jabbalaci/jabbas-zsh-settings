@@ -16,4 +16,6 @@ add-zsh-hook chpwd _activate_venv
 
 _activate_venv
 
+alias on=_activate_venv
+
 alias off='deactivate'

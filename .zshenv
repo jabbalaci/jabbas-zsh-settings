@@ -32,6 +32,8 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 export SDKMAN_DIR="$HOME/.sdkman"
 
+# export LD_LIBRARY_PATH=/usr/lib
+
 # START: set PATH
 # {{{
 path_dirs=(
@@ -46,6 +48,7 @@ path_dirs=(
   $HOME/.zsh/bin
   $HOME/.local/bin
   $HOME/.nimble/bin
+  $HOME/.cargo/bin          # Rust, installation: https://www.rust-lang.org/tools/install
 )
 
 PATH=""

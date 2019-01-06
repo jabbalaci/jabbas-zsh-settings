@@ -35,8 +35,12 @@ setopt extended_glob            # Use extended globbing syntax.
 
 autoload -U colors && colors
 
-autoload -U compinit
-compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ''
 # case-insensitive, partial-word, and then substring completion
@@ -54,7 +58,7 @@ libs=(
   grep            # colored output + ignore .git folders
   key-bindings    # must have
   git             # gitup "command"
-  # distro          # distro detection with get_distro_name()
+  mc-fix          # fix the subshell problem in Midnight Commander, see https://midnight-commander.org/ticket/3177
 )
 
 for name in "${libs[@]}"

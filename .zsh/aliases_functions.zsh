@@ -2,6 +2,8 @@
 ## aliases / functions ##
 #########################
 
+alias src="source"
+
 # things that differ on my ubuntu and manjaro boxes
 # DESKTOP_SESSION is "ubuntu" (for Ubuntu) or "xfce" (for Manjaro)
 if [[ "$DESKTOP_SESSION" == "ubuntu" ]]; then
@@ -118,6 +120,7 @@ alias ppwd='/bin/pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias cd..="cd .."
 
 alias -- -='cd -'
 alias 1='cd -'
@@ -168,11 +171,15 @@ else
   alias kpx="keepassxc 2>/dev/null &"   # manjaro, the ...xc version
 fi
 # └---
+alias palette="bak=$PWD; cd $DROPBOX/git.projects/others/colorpalette; ./run.py; off; cd $bak"
 
 # Clojure
 alias repl="lein repl"
 alias repl19="cd $DROPBOX/clojure/_latest_stable && lein repl"
 alias rebel='clojure -Sdeps "{:deps {com.bhauman/rebel-readline {:mvn/version \"0.1.4\"}}}" -m rebel-readline.main'
+
+# Coconut
+alias coco="coconut --target 36 --style native"
 
 
 ##################
@@ -211,3 +218,10 @@ alias -g N1="1>/dev/null"
 alias -g 1N="1>/dev/null"
 alias -g N2="2>/dev/null"
 alias -g 2N="2>/dev/null"
+
+
+###########
+# callers #
+###########
+
+alias pdfmanip="$DROPBOX/python/pdfmanip/caller.sh"
