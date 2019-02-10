@@ -30,14 +30,16 @@ export PAGER=less
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-export SDKMAN_DIR="$HOME/.sdkman"
+# export SDKMAN_DIR="$HOME/.sdkman"
+
+export QT_SELECT="qt5"
 
 # export LD_LIBRARY_PATH=/usr/lib
 
 # START: set PATH
 # {{{
 path_dirs=(
-  /opt/java/bin
+  /opt/java/bin             # Java 8
   # /opt/anaconda3/bin
   /usr/local/bin
   /bin                      # Ubuntu needs this
@@ -48,7 +50,7 @@ path_dirs=(
   $HOME/.zsh/bin
   $HOME/.local/bin
   $HOME/.nimble/bin
-  $HOME/.cargo/bin          # Rust, installation: https://www.rust-lang.org/tools/install
+  # $HOME/.cargo/bin          # Rust, installation: https://www.rust-lang.org/tools/install
 )
 
 PATH=""

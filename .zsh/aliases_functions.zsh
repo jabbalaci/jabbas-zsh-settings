@@ -220,8 +220,10 @@ alias -g N2="2>/dev/null"
 alias -g 2N="2>/dev/null"
 
 
-###########
-# callers #
-###########
+##########
+# others #
+##########
 
 alias pdfmanip="$DROPBOX/python/pdfmanip/caller.sh"
+alias mozilla="okular $HOME/mozilla.pdf &>/dev/null &"
+alias vuze="cd $DROPBOX/python/Vuze-Restarter && ./keep_alive.py; cd -"
