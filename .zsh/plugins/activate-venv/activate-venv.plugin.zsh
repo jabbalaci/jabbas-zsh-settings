@@ -8,6 +8,9 @@ _activate_venv() {
   if [[ -f Pipfile ]]; then
     # echo "# activating venv…"
     source $(pipenv --venv)/bin/activate
+  elif [[ -f pyproject.toml ]]; then
+    # echo "# activating venv…"
+    source `(poetry show -v | head -1) 2>/dev/null | cut -d" " -f3`/bin/activate
   fi
 }
 
@@ -19,3 +22,5 @@ _activate_venv
 alias on=_activate_venv
 
 alias off='deactivate'
+
+alias out='off; cd ..'

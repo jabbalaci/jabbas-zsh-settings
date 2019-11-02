@@ -1,7 +1,6 @@
 import
   os,
   osproc,
-  sequtils,
   strformat,
   strutils,
   tables,

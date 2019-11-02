@@ -14,7 +14,8 @@ else
   alias files='pacman -Ql'
   # I could install steam via Flatpak.
   # see https://wiki.archlinux.org/index.php/steam#Alternative_Flatpak_installation for install instructions
-  alias steam="flatpak run com.valvesoftware.Steam &>/dev/null &"
+  alias steam_flatpak="flatpak run com.valvesoftware.Steam &>/dev/null &"
+  alias steam="/bin/steam &>/dev/null &"
 fi
 
 # make directory and go (enter [cd] the created directory)
@@ -26,6 +27,18 @@ mdgo () {
     mkdir $1; cd $1
   fi
 }
+
+qj () {
+  QJ="$DROPBOX/python/quickjump/quickjump.py"
+  if [[ -z "$1" ]]
+  then
+    $QJ
+  else
+    cd "`$QJ $1`"
+  fi
+}
+
+alias qq='qj'
 
 prettyjson () {
   if [[ -z "$1" ]]
@@ -48,12 +61,14 @@ alias nh='nautilus . 2>/dev/null'    # nautilus here
 alias th='thunar'
 alias k='konsole 2>/dev/null &'
 alias top10dirs='du -hsx * | sort -rh | head -10'
+alias top10dirs_all='(du -h --max-depth=1) 2> /dev/null | sort -hr | head -n 10'    # including hidden dirs too
 alias top10files='find . -type f -print0 | du -h --files0-from=- | sort -hr | head -n 10'
 # lists the ten most used commands
 alias top10history="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 alias ssh='ssh -o ServerAliveInterval=60'
 alias cls='clear'
 alias echo_path='echo $PATH | tr : "\n"'
+alias tailf='tail -f'
 
 # Editors / File Managers
 alias vi=$EDITOR
@@ -89,7 +104,10 @@ alias n='nnn'
 alias p2='python2'
 alias p3='python3'
 alias p='python3'
+alias p37='$HOME/.pythonz/pythons/CPython-3.7.5/bin/python3.7'
+alias p38='$HOME/.pythonz/pythons/CPython-3.8.0/bin/python3.8'
 alias ipy='ipython'
+alias po='poetry'
 
 # Nim
 alias rod="rodcli"
@@ -112,10 +130,13 @@ alias en="$EDITOR $ZSH_JABBAS_SETTINGS/notes.txt"            # edit notes
 alias rel='source ~/.zshenv; source ~/.zshrc'       # reload
 
 # Directories
+# alias ls='lsd --color=auto'
 alias ls='ls --color=auto'
 alias d='ls -al'
 alias ll='dirs -v | head -10'
 alias ppwd='/bin/pwd'
+
+alias cat='bat'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -159,8 +180,10 @@ j() {
 
 # others
 alias notes="code $DROPBOX/notes/notes.code-workspace"
-alias note="notes"
-alias elog="notes"
+alias note="subl $DROPBOX/notes"
+alias sl="subl"
+alias e="subl"    # edit
+alias vi="subl"    # forcing myself to use Sublime Text :)
 
 # launchers
 alias processing="cd /opt/processing && ./processing"
@@ -172,6 +195,7 @@ else
 fi
 # └---
 alias palette="bak=$PWD; cd $DROPBOX/git.projects/others/colorpalette; ./run.py; off; cd $bak"
+alias rapidminer="bak=$PWD; cd $RAPIDMINER_HOME; ./RapidMiner-Studio.sh &; cd $bak"
 
 # Clojure
 alias repl="lein repl"
@@ -227,3 +251,15 @@ alias -g 2N="2>/dev/null"
 alias pdfmanip="$DROPBOX/python/pdfmanip/caller.sh"
 alias mozilla="okular $HOME/mozilla.pdf &>/dev/null &"
 alias vuze="cd $DROPBOX/python/Vuze-Restarter && ./keep_alive.py; cd -"
+alias gimpit="(find . -maxdepth 1 -type f | xargs gimp) &"
+alias krypto="cd $DROPBOX/document/_krypto; libreoffice *.xls &"
+# Jabba's Crypto Converter:
+alias jcc="$DROPBOX/python/2019-05-28-python3-coinmarketcap-api/dist/convert"
+
+# tmux
+alias tm="tmux list-sessions; echo '# tmux attach -t 0'"
+alias tm0="tmux attach -t 0"
+
+alias weather='curl wttr.in'
+
+alias go="firefox --new-tab https://google.com"

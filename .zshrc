@@ -97,7 +97,7 @@ done
 ##############
 
 # Default theme mode: dark. If you want light theme, activate it manually:
-if [[ -f $HOME/LIGHT_BACKGROUND ]]; then
+if [[ $LIGHT_BACKGROUND == "1" ]]; then
   export ZSH_THEME_MODE="light"
 fi
 
@@ -145,8 +145,9 @@ bindkey -s '\e0' "!:0- \t"     # all but the last word
 
 # ------------------------------------
 
-if [[ -f $DROPBOX/secret/own_api_keys.sh ]]; then; source $DROPBOX/secret/own_api_keys.sh; fi
-
+if [[ -f $DROPBOX/secret/own_api_keys.sh ]]; then
+    source $DROPBOX/secret/own_api_keys.sh
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"

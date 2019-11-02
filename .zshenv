@@ -10,6 +10,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 export DROPBOX=$HOME/Dropbox
 
+export CARGO_HOME=$HOME/.cargo
+
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export EDITOR="nvim"
 export VIEWER=$EDITOR
@@ -34,23 +36,50 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 export QT_SELECT="qt5"
 
+export RAPIDMINER_HOME="/opt/rapidminer-studio"
+
 # export LD_LIBRARY_PATH=/usr/lib
+
+# pythonz
+export PYTHONZ_ROOT=$HOME/.pythonz
+export PYTHONZ_HOME=$HOME/.pythonz
+
+# ignore pipenv warning
+export PIPENV_VERBOSITY=-1
+
+# light background
+if [[ -f $HOME/LIGHT_BACKGROUND ]]; then
+    export LIGHT_BACKGROUND=1
+fi
+
+# bat file viewer
+if [[ $LIGHT_BACKGROUND == "1" ]]; then
+  # export BAT_THEME="ansi-light"
+  export BAT_THEME="GitHub"
+fi
+
 
 # START: set PATH
 # {{{
 path_dirs=(
-  /opt/java/bin             # Java 8
+  /opt/java/bin             	    # Java 8
   # /opt/anaconda3/bin
   /usr/local/bin
-  /bin                      # Ubuntu needs this
+  /bin                      	    # Ubuntu needs this
   /usr/bin
-  /var/lib/snapd/snap/bin   # Manjaro
-  /snap/bin                 # Ubuntu
+  /snap/bin
   $HOME/bin
   $HOME/.zsh/bin
   $HOME/.local/bin
-  $HOME/.nimble/bin
-  # $HOME/.cargo/bin          # Rust, installation: https://www.rust-lang.org/tools/install
+  $HOME/.nimble/bin	   	    # Nim
+  $PYTHONZ_ROOT/bin         	    # pythonz
+  $CARGO_HOME/bin           	    # Rust, installation: https://www.rust-lang.org/tools/install
+  $HOME/.poetry/bin         	    # https://poetry.eustace.io/docs
+
+  # some of my own projects:
+  $DROPBOX/python/melt/dist         # melt
+  $DROPBOX/python/JSON-path/dist    # jsonpath
+  $DROPBOX/python/apollo            # apollo.py
 )
 
 PATH=""

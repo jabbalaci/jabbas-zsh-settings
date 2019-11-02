@@ -6,7 +6,7 @@ gh() {
   giturl=$(git config --get remote.origin.url)
   if [[ "$giturl" == "" ]]; then
     echo "Not a git repository or no remote.origin.url set"
-    exit 1
+    return
   fi
 
   giturl=${giturl/git\@github\.com\:/https://github.com/}
