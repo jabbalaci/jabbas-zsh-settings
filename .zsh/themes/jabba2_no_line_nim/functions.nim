@@ -84,12 +84,11 @@ func reverse*(s: string): string =
   const rev = "\x1b[7m"
   return fmt"{zeroWidth(rev)}{s}"
 
-func reset*(s: string): string =
+func reset*(s: string = ""): string =
   const res = "\x1b[0m"
   return fmt"{s}{zeroWidth(res)}"
 
-func color*(s: string, fg: string = "", bg: string = "",
-  b: bool = false, u: bool = false, r = false): string =
+func color*(s: string, fg = "", bg = "", b = false, u = false, r = false): string =
   result = s
   if s.len == 0:
     return s

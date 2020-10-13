@@ -73,28 +73,14 @@ alias tailf='tail -f'
 # Editors / File Managers
 alias vi=$EDITOR
 alias vim=$EDITOR
-alias ed='code .'
 
-# START: mc-wrapper
-my_mc() {
-  local text=""
-  if [ -f /usr/local/libexec/mc/mc-wrapper.sh ]
-  then
-    text=". /usr/local/libexec/mc/mc-wrapper.sh"
-  else
-    if [ -f /usr/lib/mc/mc-wrapper.sh ]
-    then
-      text=". /usr/lib/mc/mc-wrapper.sh"
-    else
-      echo "error: mc-wrapper.sh not found"
-      return
-    fi
-  fi
-  alias mc="$text"
-}
-my_mc
-unfunction my_mc    # clean up
-# END: mc-wrapper
+# ┌---
+if [[ "$DESKTOP_SESSION" == "ubuntu" ]]; then
+  alias mc=". /usr/share/mc/bin/mc-wrapper.sh"    # ubuntu
+else
+  alias mc=". /usr/lib/mc/mc-wrapper.sh"    # manjaro
+fi
+# └---
 
 alias m='mc'
 alias r='ranger'
@@ -104,7 +90,7 @@ alias n='nnn'
 alias p2='python2'
 alias p3='python3'
 alias p='python3'
-alias p37='$HOME/.pythonz/pythons/CPython-3.7.5/bin/python3.7'
+alias p37='$HOME/.pythonz/pythons/CPython-3.7.6/bin/python3.7'
 alias p38='$HOME/.pythonz/pythons/CPython-3.8.0/bin/python3.8'
 alias ipy='ipython'
 alias po='poetry'
@@ -136,7 +122,8 @@ alias d='ls -al'
 alias ll='dirs -v | head -10'
 alias ppwd='/bin/pwd'
 
-alias cat='bat'
+alias bat='batcat'
+alias cat='batcat --pager never'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -181,9 +168,14 @@ j() {
 # others
 alias notes="code $DROPBOX/notes/notes.code-workspace"
 alias note="subl $DROPBOX/notes"
-alias sl="subl"
-alias e="subl"    # edit
-alias vi="subl"    # forcing myself to use Sublime Text :)
+# alias sl="subl"
+alias s="subl"    # edit with Sublime Text
+alias c="code"    # edit with VS Code
+
+# alias e="subl"    # edit with Sublime Text
+# alias e="code"    # edit with VS Code
+
+alias joplin="joplin-desktop"
 
 # launchers
 alias processing="cd /opt/processing && ./processing"
@@ -194,7 +186,7 @@ else
   alias kpx="keepassxc 2>/dev/null &"   # manjaro, the ...xc version
 fi
 # └---
-alias palette="bak=$PWD; cd $DROPBOX/git.projects/others/colorpalette; ./run.py; off; cd $bak"
+alias palette="bak=$PWD; cd $DROPBOX/git.projects/others/colorpalette; on; ./run.py; off; cd $bak"
 alias rapidminer="bak=$PWD; cd $RAPIDMINER_HOME; ./RapidMiner-Studio.sh &; cd $bak"
 
 # Clojure
@@ -262,4 +254,9 @@ alias tm0="tmux attach -t 0"
 
 alias weather='curl wttr.in'
 
-alias go="firefox --new-tab https://google.com"
+# alias go="firefox --new-tab https://google.com"
+
+alias make_targets="make -qp | awk -F':' '/^[a-zA-Z0-9][^\$#\/\t=]*:([^=]|$)/ {split(\$1,A,/ /);for(i in A)print A[i]}' | grep -v Makefile | sort -u"
+
+alias jsh='jshell'
+alias urlshortener='dotnet $DROPBOX/csharp/UrlShortener/release.linux/UrlShortener.dll'

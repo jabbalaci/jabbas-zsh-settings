@@ -111,7 +111,8 @@ fi
 # start: https://github.com/jabbalaci/nicy
 _nicy_prompt() {
   local prev_exit_code=$?
-  PROMPT=$($ZSH_THEMES/jabba2_nim/jabba2 $prev_exit_code)
+  # PROMPT=$($ZSH_THEMES/jabba2_nim/jabba2 $prev_exit_code)
+  PROMPT=$($ZSH_THEMES/jabba2_no_line_nim/jabba2 $prev_exit_code)
 }
 precmd_functions+=_nicy_prompt
 # end: https://github.com/jabbalaci/nicy

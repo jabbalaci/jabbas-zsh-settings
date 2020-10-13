@@ -62,12 +62,12 @@ fi
 # START: set PATH
 # {{{
 path_dirs=(
-  /opt/java/bin             	    # Java 8
   # /opt/anaconda3/bin
   /usr/local/bin
   /bin                      	    # Ubuntu needs this
   /usr/bin
   /snap/bin
+  /usr/bin/vendor_perl              # biber for LaTeX
   $HOME/bin
   $HOME/.zsh/bin
   $HOME/.local/bin
@@ -75,11 +75,16 @@ path_dirs=(
   $PYTHONZ_ROOT/bin         	    # pythonz
   $CARGO_HOME/bin           	    # Rust, installation: https://www.rust-lang.org/tools/install
   $HOME/.poetry/bin         	    # https://poetry.eustace.io/docs
+  # $HOME/.pythonz/pythons/CPython-3.7.6/bin    # python3.7
+  $HOME/.dotnet/tools       # dotnet-try
+  /usr/lib/jvm/default-runtime/bin  # jshell
 
   # some of my own projects:
   $DROPBOX/python/melt/dist         # melt
   $DROPBOX/python/JSON-path/dist    # jsonpath
   $DROPBOX/python/apollo            # apollo.py
+  $DROPBOX/python/Bash-Utils/dist   # sp
+  $DROPBOX/nim/NimCliHelper         # rod
 )
 
 PATH=""

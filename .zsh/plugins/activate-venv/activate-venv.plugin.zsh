@@ -15,7 +15,8 @@ _activate_venv() {
 }
 
 autoload -U add-zsh-hook
-add-zsh-hook chpwd _activate_venv
+# we'll enable it later, when `poetry show -v` becomes fast:
+# add-zsh-hook chpwd _activate_venv
 
 _activate_venv
 

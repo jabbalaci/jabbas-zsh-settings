@@ -6,10 +6,13 @@ import functions
 #
 # echo fg("hello", 153)
 
+# echo color("laci", bg="green"), reset("")
+
 let
-  line1 = &"{hr()}\n"
+  # line1 = &"{hr()}\n"
   # line2 = &"{nimProjectInfo()}{virtualEnvInfo()}{timeInfo()} [nim] {color(tilde(getCwd()), magenta, b=true)}{coloredBranchName()}{coloredPrompt()} "
-  line2 = &"{nimProjectInfo()}{virtualEnvInfo()}{timeInfo()} {color(tilde(getCwd()), magenta, b=true)}{coloredBranchName()}{coloredPrompt()} "
-  result = line1 & line2
+  line2 = &"{nimProjectInfo()}{virtualEnvInfo()}{timeInfo()} {color(tilde(getCwd()), magenta, b=true)}{coloredBranchName()}{coloredPrompt()}{reset()} "
+  # result = line1 & line2
+  result = line2
 
 echo result
